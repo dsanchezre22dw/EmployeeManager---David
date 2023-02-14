@@ -176,7 +176,9 @@ public class EmployeesManager {
         emps.add(new Employee("Irene", 5213.56, new MobilePhone("612666954", 98)));
         emps.add(new Employee("Miriam", 1243.89, new MobilePhone("632547002", 3)));
 
-
+        //Saving the arrayList in a file
+        em1.saveEmployees(emps);
+        
 
 
 
