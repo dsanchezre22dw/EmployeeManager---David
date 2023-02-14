@@ -1,13 +1,44 @@
 package Exercises1.ex3;
 
-public class MobilePhone {
+import javax.imageio.IIOException;
+import java.io.*;
+
+public class MobilePhone implements Serializable {
 
     private String number;
     private double credit;
+    private static final long serialVersionUID = 1L;
 
     public MobilePhone(String number, double credit){
         this.number = number;
         this.credit = credit;
+    }
+
+    public void writeObject(ObjectOutputStream oos){
+        try {
+            oos.defaultWriteObject();
+            oos.writeObject(this.number);
+        }catch (FileNotFoundException a){
+            System.out.println("File not found");
+        }catch (IOException b){
+            System.out.println("Exception");
+        }
+
+    }
+
+    public String readObject(ObjectInputStream ois){
+        try {
+            ois.defaultReadObject();
+            this.number = (String) ois.readObject();
+        }catch (FileNotFoundException a){
+            System.out.println("File not found");
+        }catch (IOException b){
+            System.out.println("Exception");
+        }catch (ClassNotFoundException c){
+            System.out.println("Class not found");
+        }
+
+        return null;
     }
 
     public void display(){
@@ -19,7 +50,11 @@ public class MobilePhone {
     }
 
     public void call(int minutes){
-        this.credit -= minutes*2;
+        if (minutes*2 <= this.credit){
+            this.credit -= minutes*2;
+        }else{
+            System.out.println("You cannot call for that long, not enough money");
+        }
     }
 
     public void setCredit(double credit) {
