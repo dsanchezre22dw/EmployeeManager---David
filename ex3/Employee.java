@@ -22,12 +22,18 @@ public class Employee implements Serializable {
     }
 
     public void work(){
-        salary += 10;
+        if (30 <= this.mp.getCredit()){
+            salary += 10;
+        }
+
         this.mp.call(15);
     }
 
     public void work(int g, int m){
-        salary += g;
+        if (m*2 <= this.mp.getCredit()){
+            salary += g;
+        }
+
         this.mp.call(m);
     }
 

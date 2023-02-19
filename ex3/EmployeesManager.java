@@ -94,6 +94,7 @@ public class EmployeesManager {
             System.out.println("IOException");
         }
 
+        System.out.println("There is not any employee with that name");
         return null;
     }
 
@@ -178,7 +179,21 @@ public class EmployeesManager {
 
         //Saving the arrayList in a file
         em1.saveEmployees(emps);
-        
+
+        //Display of the employees inside the file
+        em1.displayEmployees();
+
+        //Looking for an employee called "Mikel" (existing)
+        em1.searchEmployee("Mikel");
+
+        //Looking for an employee called "Manuel" (non-existing)
+        em1.searchEmployee("Manuel");
+
+        //Generation of the files with the mobiles
+
+
+
+
 
 
 

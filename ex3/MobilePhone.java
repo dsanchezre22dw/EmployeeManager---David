@@ -26,7 +26,7 @@ public class MobilePhone implements Serializable {
 
     }
 
-    public String readObject(ObjectInputStream ois){
+    public void readObject(ObjectInputStream ois){
         try {
             ois.defaultReadObject();
             this.number = (String) ois.readObject();
@@ -37,8 +37,6 @@ public class MobilePhone implements Serializable {
         }catch (ClassNotFoundException c){
             System.out.println("Class not found");
         }
-
-        return null;
     }
 
     public void display(){
@@ -59,5 +57,9 @@ public class MobilePhone implements Serializable {
 
     public void setCredit(double credit) {
         this.credit = credit;
+    }
+
+    public double getCredit() {
+        return this.credit;
     }
 }
