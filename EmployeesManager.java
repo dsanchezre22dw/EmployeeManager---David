@@ -168,7 +168,7 @@ public class EmployeesManager {
     public static void main(String[] args) {
 
         //Creation of an EmployeesManager object, with the file "employees.data"
-        EmployeesManager em1 = new EmployeesManager("employees.data");
+        EmployeesManager em = new EmployeesManager("employees.data");
 
         //Creation of an arrayList and addition of 5 employees
         List<Employee> emps = new ArrayList<Employee>(5);
@@ -179,19 +179,19 @@ public class EmployeesManager {
         emps.add(new Employee("Miriam", 1243.89, new MobilePhone("632547002", 3)));
 
         //Saving the arrayList in a file
-        em1.saveEmployees(emps);
+        em.saveEmployees(emps);
 
         //Display of the employees inside the file
-        em1.displayEmployees();
+        em.displayEmployees();
         System.out.println();
         //Looking for an employee called "Mikel" (existing)
-        em1.searchEmployee("Mikel").display();
+        em.searchEmployee("Mikel").display();
 
         //Looking for an employee called "Manuel" (non-existing)
-        em1.searchEmployee("Manuel");
+        em.searchEmployee("Manuel");
         System.out.println();
         //Generation of the files with the mobiles
-        em1.generateMobilesFile("mobiles.data");
+        em.generateMobilesFile("mobiles.data");
 
         //Display of the file with the mobiles
         ObjectInputStream ois = null;
@@ -222,11 +222,11 @@ public class EmployeesManager {
         System.out.println();
 
         //workEveryone() and displayEmployees()
-        em1.displayEmployees(); //Display of all the employees before working
+        em.displayEmployees(); //Display of all the employees before working
         System.out.println();
-        em1.workEveryone(); //All the employees work (David, Mikel, and Miriam can't work, so a message will be printed)
+        em.workEveryone(); //All the employees work (David, Mikel, and Miriam can't work, so a message will be printed)
         System.out.println();
-        em1.displayEmployees(); //Display of all the employees after working
+        em.displayEmployees(); //Display of all the employees after working
 
     }
 
