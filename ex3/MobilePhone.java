@@ -14,29 +14,14 @@ public class MobilePhone implements Serializable {
         this.credit = credit;
     }
 
-    public void writeObject(ObjectOutputStream oos){
-        try {
-            oos.defaultWriteObject();
-            oos.writeObject(this.number);
-        }catch (FileNotFoundException a){
-            System.out.println("File not found");
-        }catch (IOException b){
-            System.out.println("Exception");
-        }
-
+    private void writeObject(ObjectOutputStream oos) throws IOException{
+        oos.defaultWriteObject();
+        oos.writeObject(this.number);
     }
 
-    public void readObject(ObjectInputStream ois){
-        try {
-            ois.defaultReadObject();
-            this.number = (String) ois.readObject();
-        }catch (FileNotFoundException a){
-            System.out.println("File not found");
-        }catch (IOException b){
-            System.out.println("Exception");
-        }catch (ClassNotFoundException c){
-            System.out.println("Class not found");
-        }
+    private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException{
+        ois.defaultReadObject();
+        this.number = (String) ois.readObject();
     }
 
     public void display(){
